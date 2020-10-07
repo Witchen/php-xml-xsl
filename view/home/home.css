@@ -1,0 +1,45 @@
+.ecom-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.ecom-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+
+.ecom-header-logo:hover {
+  text-decoration: none;
+}
+
+.item-card {
+  flex: 0 1 calc(20% - 20px);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.item-card:not(:last-child) {
+  margin-right: 20px;
+}
+
+.item-card-img-responsive {
+  max-width: 100%;
+  max-height: 200px;
+  height: 100%;
+  /* height: auto; */
+}
+
+.item-card-company-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-line {
+  color: #ff330c;
+}
+
+.price {
+  font-size: 18px;
+  margin-left: 5px;
+}

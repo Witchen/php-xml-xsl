@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="navbar.xsl"?>
+<navbar>
+  <nav>
+    <label>Mobiles &#38; Tabets</label>
+    <url>item?name=mobiles-tablets</url>
+  </nav>
+  <nav>
+    <label>Phone Cases &#38; Covers</label>
+    <url>item?name=phone-cases</url>
+  </nav>
+  <nav>
+    <label>Wall Chargers</label>
+    <url>item?name=wall-chargers</url>
+  </nav>
+  <nav>
+    <label>Power Banks</label>
+    <url>item?name=power-banks</url>
+  </nav>
+  <nav>
+    <label>Prepaid &#38; Postpaid</label>
+    <url>item?name=prepaid-postpaid</url>
+  </nav>
+</navbar>

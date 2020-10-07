@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="planet.xsl"?>
+<PLANETS>
+  <PLANET>
+    <NAME>Mercury</NAME>
+    <MASS>.0553 (Earth = 1)</MASS>
+    <RADIUS>1516 miles</RADIUS>
+    <DAY>58.65 days</DAY>
+  </PLANET>
+  <PLANET>
+    <NAME>Venus</NAME>
+    <MASS>.815 (Earth = 1)</MASS>
+    <RADIUS>3716  miles</RADIUS>
+    <DAY>116.75 days</DAY>
+  </PLANET>
+</PLANETS>
