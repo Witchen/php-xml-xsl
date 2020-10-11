@@ -4,6 +4,12 @@
 $xml = new DOMDocument;
 $xml->load('cdcatalog.xml');
 
+// Validate
+$valid = false;
+if ($xml->validate()) { 
+  $valid = true;
+}
+
 // Load XSL file
 $xsl = new DOMDocument;
 $xsl->load('cdcatalog.xsl');
@@ -27,6 +33,7 @@ $transformedXml = $proc->transformToXML($xml);
 
 <body>
   <h1>PHP:</h1>
+  <h1>CD Catalog is Valid XML with DTD: <?php echo $valid ? "true" : "false"; ?></h1>
   <?php echo $transformedXml; ?>
 </body>
 
