@@ -1,4 +1,12 @@
-<footer>
+<footer class="ecom-footer">
+  <div class="container d-flex justify-content-between">
+    <div>
+      <span><a class="p-2 text-muted" href="#">Contact Us</a> |</span>
+      <span><a class="p-2 text-muted" href="#">Terms & Condition</a> |</span>
+      <span><a class="p-2 text-muted" href="#">Privacy Policy</a></span>
+    </div>
+    <div><span>© Laxada 2020</span></div>
+  </div>
 </footer>
 
 <!-- Optional JavaScript -->

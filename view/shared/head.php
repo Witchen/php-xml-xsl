@@ -9,5 +9,8 @@
   <!-- Custom styles for this template -->
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 
+  <!-- Own CSS -->
+  <link rel="stylesheet" href="/assets/styles/style.css">
+
   <title>Ecommerce Homepage</title>
 </head>
