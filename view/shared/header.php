@@ -19,7 +19,7 @@ $transformedNavbarXml = $proc->transformToXML($navbarXml);
       <img src="/assets/image/logo.jpg" alt="Smiley face" width="50" height="50" />
     </div>
     <div class="col-4 text-center">
-      <a class="ecom-header-logo text-dark" href="#">Laxada</a>
+      <a class="ecom-header-logo text-dark" href="/">Laxada</a>
     </div>
     <div class="col-4 d-flex justify-content-end align-items-center">
       <a class="text-muted" href="#">

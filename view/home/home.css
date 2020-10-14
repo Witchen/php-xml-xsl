@@ -1,19 +1,43 @@
 .item-card {
   flex: 0 1 calc(20% - 20px);
-  display: flex;
-  flex-direction: column;
   margin-bottom: 30px;
+  padding: 10px;
+
+  display: flex;
 }
 
 .item-card:not(:last-child) {
   margin-right: 20px;
 }
 
+.item-card:hover {
+  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.3);
+  box-shadow: 0 1px 6px rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+.item-card-url-wrapper {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.item-card-url-wrapper:hover {
+  text-decoration: none;
+  color: black;
+}
+
 .item-card-img-responsive {
   max-width: 100%;
-  max-height: 200px;
+  max-height: 180px;
   height: 100%;
   /* height: auto; */
+}
+
+.item-card-title {
+  flex: 1;
+  max-height: 6em;  /* max height to 4 line (1 line is 1.5em)*/
+  overflow: hidden;
 }
 
 .item-card-company-rating {

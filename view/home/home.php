@@ -1,18 +1,31 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
+require_once($path . "/service/item-service.php");
+require_once($path . "/service/xml-service.php");
+
+$category = $_GET['category'];
+
+// Get Items
+$itemService = new ItemService();
+$items = $itemService->getItemsByCategory($category);
+
+// Produce XML
+$xmlService = new XMLService();
+$xmlService->produceXml($items, 'items', 'item');
+
+// Validate XML
+$xmlService->validateXml('items');
 
 // Load XML file
 $itemXml = new DOMDocument;
-$itemXml->load($path . '/view/shared/item/item.xml');
+$itemXml->load($path . '/xml/items/items.xml');
 
 // Load XSL file
 $itemXsl = new DOMDocument;
-$itemXsl->load($path . '/view/shared/item/item.xsl');
+$itemXsl->load($path . '/xml/items/items.xsl');
 
-// Configure the transformer
+// Attach the XSL rules
 $proc = new XSLTProcessor;
-
-// Attach the xsl rules
 $proc->importStyleSheet($itemXsl);
 $transformedItemXml = $proc->transformToXML($itemXml);
 

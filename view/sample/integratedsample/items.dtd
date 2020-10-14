@@ -1,0 +1,11 @@
+<!ELEMENT items (item*)>
+<!ELEMENT item (id,seller_id,category,title,price,brand,stars,picurl,detail)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT seller_id (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT brand (#PCDATA)>
+<!ELEMENT stars (#PCDATA)>
+<!ELEMENT picurl (#PCDATA)>
+<!ELEMENT detail (#PCDATA)>

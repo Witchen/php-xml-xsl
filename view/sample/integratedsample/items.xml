@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE items SYSTEM "items.dtd">
+<items>
+  <item>
+    <id>1</id>
+    <seller_id>1</seller_id>
+    <category>mobiles-tablets</category>
+    <title>Samsung Galaxy A71 (8GB RAM + 128GB ROM) Smartphone 1 Year Samsung Warranty Free Shipping</title>
+    <price>1599</price>
+    <brand>Samsung</brand>
+    <stars>5</stars>
+    <picurl>https://stg-images.samsung.com/is/image/samsung/my-galaxy-a51-a515-sm-a515fzbhxme-front-thumb-226627598</picurl>
+    <detail>6.7" FHD+ sAMOLED Plus Infinity-U Display&#xD;
+2.2GHz,1.8GHz&#xD;
+Octa-Core&#xD;
+8GB RAM, 128GB ROM&#xD;
+Expendable up to 512GB&#xD;
+Rear Camera : 64.0 MP (F1.8) + 12.0 MP (F2.2) + 5.0 MP (F2.2) +5.0 MP (F2.4)&#xD;
+Front Camera : 32MP (F2.2)&#xD;
+4,500 mAH Battery (25W Fast Charging)&#xD;
+WiFi + LTE&#xD;
+Bluetooth v5.0 + NFC&#xD;
+Dual Sim + MicroSD&#xD;
+Accelerometer, Fingerprint Sensor, Gyro Sensor, Geomagnetic Sensor, Hall Sensor, RGB Light Sensor, Proximity Sensor</detail>
+  </item>
+</items>
