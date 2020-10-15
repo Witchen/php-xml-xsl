@@ -25,6 +25,7 @@ $itemDetailList = '<li>' . str_replace("\n", "</li>\n<li>", trim($item['detail']
 
 <head>
   <link href="item-detail.css" rel="stylesheet">
+  <title>Item Detail</title>
 </head>
 
 <body>

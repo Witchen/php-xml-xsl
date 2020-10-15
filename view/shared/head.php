@@ -11,6 +11,4 @@
 
   <!-- Own CSS -->
   <link rel="stylesheet" href="/assets/styles/style.css">
-
-  <title>Ecommerce Homepage</title>
 </head>

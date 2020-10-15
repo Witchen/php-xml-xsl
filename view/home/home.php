@@ -42,6 +42,7 @@ $transformedItemXml = $proc->transformToXML($itemXml);
 
 <head>
   <link href="home.css" rel="stylesheet">
+  <title>Ecommerce Homepage</title>
 </head>
 
 <body>
