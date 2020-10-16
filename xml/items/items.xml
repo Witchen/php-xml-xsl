@@ -1,3 +1,56 @@
 <?xml version="1.0"?>
 <!DOCTYPE items SYSTEM "items.dtd">
-<items/>
+<items>
+  <item>
+    <id>1</id>
+    <seller_id>1</seller_id>
+    <category>mobiles-tablets</category>
+    <title>Samsung Galaxy A71 (8GB RAM + 128GB ROM) Smartphone 1 Year Samsung Warranty Free Shipping</title>
+    <price>1599</price>
+    <brand>Samsung</brand>
+    <stars>&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</stars>
+    <picurl>https://stg-images.samsung.com/is/image/samsung/my-galaxy-a51-a515-sm-a515fzbhxme-front-thumb-226627598</picurl>
+    <detail>6.7" FHD+ sAMOLED Plus Infinity-U Display&#xD;
+2.2GHz,1.8GHz&#xD;
+Octa-Core&#xD;
+8GB RAM, 128GB ROM&#xD;
+Expendable up to 512GB&#xD;
+Rear Camera : 64.0 MP (F1.8) + 12.0 MP (F2.2) + 5.0 MP (F2.2) +5.0 MP (F2.4)&#xD;
+Front Camera : 32MP (F2.2)&#xD;
+4,500 mAH Battery (25W Fast Charging)&#xD;
+WiFi + LTE&#xD;
+Bluetooth v5.0 + NFC&#xD;
+Dual Sim + MicroSD&#xD;
+Accelerometer, Fingerprint Sensor, Gyro Sensor, Geomagnetic Sensor, Hall Sensor, RGB Light Sensor, Proximity Sensor</detail>
+    <detail_url>/view/item-detail/item-detail.php?id=1</detail_url>
+  </item>
+  <item>
+    <id>2</id>
+    <seller_id>1</seller_id>
+    <category>mobiles-tablets</category>
+    <title>iPhone 11 Pro Max 64GB / 256GB / 512GB</title>
+    <price>5299</price>
+    <brand>Apple</brand>
+    <stars>&#x2B50;&#x2B50;&#x2B50;&#x2B50;&#x2B50;</stars>
+    <picurl>https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/iphone-11-pro-max-silver-select-2019?wid=834&amp;hei=1000&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1566953858420</picurl>
+    <detail>Super Retina XDR OLED display2&#xD;
+Water and dust resistant (4 metres for up to 30 minutes, IP68)3&#xD;
+Triple-camera system with 12MP Ultra Wide, Wide and Telephoto cameras&#xD;
+12MP TrueDepth front camera with Portrait Mode, 4K video and slow-motion video&#xD;
+Face ID for secure authentication and Apple Pay&#xD;
+A13 Bionic chip with third-generation Neural Engine</detail>
+    <detail_url>/view/item-detail/item-detail.php?id=2</detail_url>
+  </item>
+  <item>
+    <id>3</id>
+    <seller_id>1</seller_id>
+    <category>mobiles-tablets</category>
+    <title>ASUS ROG PHONE 3 Strix Edition - Gaming Smartphone (ZS661KS) 8GB+256GB - Official ASUS MALAYSIA</title>
+    <price>2999</price>
+    <brand>ASUS</brand>
+    <stars>&#x2B50;&#x2B50;&#x2B50;</stars>
+    <picurl>https://www.asus.com/media/global/products/21csrbgrtysfwbyq/P_setting_fff_1_90_end_600.png</picurl>
+    <detail>The ROG Phone 3 Strix Edition uses the flagship Qualcomm&#xAE; Snapdragon&#x2122; 865 Mobile Platform with advanced 5G1 mobile communications capabilities. Built for dedicated gamers, it has an amazing new 144 Hz / 1 ms display that leaves the competition standing. Alongside slick features like AirTrigger 3, you&#x2019;ll find a monster 6000 mAh battery2, a unique side-charging design, dual front-facing stereo speakers, and a full range of modular accessories. ROG Phone 3 Strix Edition is everything you&#x2019;ve always wanted for mobile gaming!</detail>
+    <detail_url>/view/item-detail/item-detail.php?id=3</detail_url>
+  </item>
+</items>

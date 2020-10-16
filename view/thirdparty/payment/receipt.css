@@ -1,0 +1,16 @@
+.receipt-container {
+  display: flex;
+  justify-content: center;
+}
+
+.receipt-card {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check-img {
+  width: 220px;
+  height: 200px;
+}

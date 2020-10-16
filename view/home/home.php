@@ -3,11 +3,15 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 require_once($path . "/service/item-service.php");
 require_once($path . "/service/xml-service.php");
 
-$category = $_GET['category'];
+if (isset($_GET['category'])) {
+  $category = $_GET['category'];
+}
 
 // Get Items
 $itemService = new ItemService();
-$items = $itemService->getItemsByCategory($category);
+$items = isset($category)
+  ? $itemService->getItemsByCategory($category)
+  : $itemService->getItems();
 
 // Produce XML
 $xmlService = new XMLService();
@@ -38,6 +42,7 @@ $transformedItemXml = $proc->transformToXML($itemXml);
 
 <head>
   <link href="home.css" rel="stylesheet">
+  <title>Ecommerce Homepage</title>
 </head>
 
 <body>
