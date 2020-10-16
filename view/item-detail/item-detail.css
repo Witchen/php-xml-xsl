@@ -73,3 +73,8 @@ ul.item-detail-list {
   padding: 12px;
   margin-bottom: 12px;
 }
+
+#qty {
+  width: 75px;
+  flex: 0;
+}

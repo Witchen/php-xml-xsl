@@ -14,6 +14,7 @@ $sellerService = new SellerService();
 $sellers = $sellerService->getSeller($item['seller_id']);
 $seller = $sellers[0];
 
+$emptyDetail = $item['detail'] == null;
 $itemDetailList = '<li>' . str_replace("\n", "</li>\n<li>", trim($item['detail'], "\n")) . '</li>';
 
 ?>
@@ -43,7 +44,13 @@ $itemDetailList = '<li>' . str_replace("\n", "</li>\n<li>", trim($item['detail']
             <p><?php echo $item['stars'] ?></p>
             <p>Brand: <?php echo $item['brand'] ?></p>
             <p class="item-price">RM <?php echo $item['price'] ?></p>
-            <button class="btn item-buy-btn">Buy Now</button>
+            <div class="d-flex align-items-center mb-3 qty-input">
+              <label for="qty">Quantity</label>
+              <div class="input-group ml-3">
+                <input type="number" class="form-control" id="qty">
+              </div>
+            </div>
+            <button class="btn item-buy-btn" id="buy-btn">Buy Now</button>
           </div>
         </div>
         <div class="right-panel">
@@ -60,6 +67,7 @@ $itemDetailList = '<li>' . str_replace("\n", "</li>\n<li>", trim($item['detail']
           </div>
         </div>
       </div>
+      <?php if (!$emptyDetail) { ?>
       <div class="item-detail">
         <div class="item-detail-title">Product Details: </div>
         <div>
@@ -68,11 +76,26 @@ $itemDetailList = '<li>' . str_replace("\n", "</li>\n<li>", trim($item['detail']
           </ul>
         </div>
       </div>
+      <?php } ?>
     </div>
     </br>
   </div>
   <?php include_once('../shared/footer.php'); ?>
 
+  <script>
+    $(document).ready(function() {
+      $("#buy-btn").on("click", buy);
+    });
+
+    function buy() {
+      var qty = $("#qty").val();
+      if (qty == null || qty < 1) {
+        alert("Please input at least 1 for quantity");
+        return;
+      }
+      window.location.href = "/view/thirdparty/payment/payment.php?id=<?php echo $item['id'] ?>&qty=" + qty;
+    }
+  </script>
 </body>
 
 </html>

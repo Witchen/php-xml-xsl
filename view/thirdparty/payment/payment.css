@@ -1,0 +1,105 @@
+.card {
+  padding: 20px;
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #eff0f5; */
+  /* padding: 20px; */
+}
+
+.receiver-info-card {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.receiver-info-border {
+  border-right: 1px solid black;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.receiver-info-container {
+  flex: 1;
+}
+
+.amount-info-container {
+  flex: 1;
+}
+
+.title-bar {
+  padding: 5px;
+  border-radius: 4px;
+  background-color: #dddee4;
+  margin-bottom: 12px;
+}
+
+.payment-info-border {
+  border-bottom: 1px solid black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: auto;
+}
+
+.total-payment {
+  font-weight: bold;
+}
+
+.first-name-input {
+  margin-right: 20px;
+  width: 285px;
+}
+
+.last-name-input {
+  width: 285px;
+}
+
+.address-input {
+  margin-right: 20px;
+  width: 440px;
+}
+
+.city-input {
+  width: 130px;
+}
+
+.state-input {
+  margin-right: 20px;
+  width: 200px;
+}
+
+.zip-code-input {
+  margin-right: 20px;
+  width: 100px;
+}
+
+.country-input {
+  width: 250px;
+}
+
+.email-input {
+  width: 590px;
+}
+
+.cc-no-input {
+  margin-right: 20px;
+  width: 350px;
+}
+
+.exp-input {
+  margin-right: 20px;
+  width: 140px;
+}
+
+.ccv-no-input {
+  width: 60px;
+}
+
+.payment-btn {
+  width: 590px;
+  border: 1px solid #ffb916;
+  background: #ffb916;
+  color: #fff;
+}
