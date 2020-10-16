@@ -1,3 +1,3 @@
 <?php 
-  header("Location: view/home/home.php"); 
+  header("Location: view/home/home.php");
 ?>

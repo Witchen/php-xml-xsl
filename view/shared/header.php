@@ -11,6 +11,14 @@ $navbarXsl->load($path . '/view/shared/navbar/navbar.xsl');
 $proc = new XSLTProcessor;
 $proc->importStyleSheet($navbarXsl);
 $transformedNavbarXml = $proc->transformToXML($navbarXml);
+
+$authenticationElement ='<a class="btn btn-sm btn-outline-secondary mr-2" href="../authentication/login.php" >Login</a><a class="btn btn-sm btn-outline-secondary" href="../authentication/registration.php">Sign up</a>';
+
+
+if(!empty($_GET["user"])){
+    $authenticationElement = '<a>Welcome '.$_GET["user"].' !</a>';
+}
+
 ?>
 
 <header class="ecom-header py-2">
@@ -28,7 +36,8 @@ $transformedNavbarXml = $proc->transformToXML($navbarXml);
           <line x1="21" y1="21" x2="15.8" y2="15.8"></line>
         </svg>
       </a>
-      <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+      <?php echo $authenticationElement; ?>
+
     </div>
   </div>
 </header>
