@@ -1,0 +1,186 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.formContainer{
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.componentWrapper{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.formTitle{
+    text-align: center;
+    padding-top:5px;
+    margin-bottom: 25px;
+}
+.inputBox {
+    position: relative;
+    height: 3.3rem;
+    margin-bottom: 1.3rem;
+}
+
+
+.inputBox input {
+    width: 100%;
+    padding: 0.625rem 10px;
+    font-size: 1rem;
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 4px;
+
+}
+
+.inputBox label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: grey;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label,
+.inputBox input[value=""] ~ label {
+    top: -1.125rem;
+    left: 10px;
+    color: #1a73e8;
+    font-size: 0.75rem;
+    background-color: white;
+    height: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.inputBox input:focus {
+    outline: none;
+    border: 2px solid #1a73e8;
+}
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #1a73e8;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.312rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #287ae6;
+    box-shadow: 0 1px 1px 0 rgba(66,133,244,0.45), 0 1px 3px 1px rgba(66,133,244,0.3);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-weight: 700;
+    color: white;
+    background-color: #2e6db8;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 6px;
+    width: 111px;
+    align-self: center;
+    font-size: 15px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #6e9dd5;
+}
+
+.inputfile + label {
+    cursor: pointer; /* "hand" cursor */
+}
+
+.uploadImageContainer{
+    border: 1px dashed;
+    padding: 10px;
+    min-height: 150px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ImageContainer{
+    width: 100%;
+    margin-top: 10px;
+
+}
+
+.selectedImageContainer{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.selectedImage{
+    height: 100px;
+    width: 100px;
+}
+
+.selectedImageContainer label{
+    margin-top: 5%;
+    margin-left: 10px;
+    font-weight: 600;
+}
+

@@ -80,3 +80,25 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.addItemButtonContainer{
+  margin-bottom: 10px;
+}
+
+.addItemButton{
+  color: white;
+  background-color: #1877f2;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor:pointer;
+  outline: none;
+}
+
+.addItemButton:hover{
+  background-color: #8bb5eb;
+}
+
+.addItemButton:focus{
+  outline: none;
+}

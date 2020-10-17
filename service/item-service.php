@@ -108,4 +108,23 @@ class ItemService
     }
     $item['stars'] = $stars;
   }
+
+  function addItem($category, $title, $price, $brand, $detail, $image){
+      $category= mysqli_real_escape_string($this->connection, $category);
+      $title = mysqli_real_escape_string($this->connection, $title);
+      $price= mysqli_real_escape_string($this->connection, $price);
+      $brand= mysqli_real_escape_string($this->connection, $brand);
+      $detail= mysqli_real_escape_string($this->connection, $detail);
+      $image=$image;
+
+      $sql= "INSERT INTO item(`seller_id`,`category`, `title`, `price`, `brand`,`stars`,`picurl`,`detail`) VALUES ('1','$category','$title','$price','$brand','0','$image','$detail')";
+      mysqli_query($this->connection, $sql);
+
+  }
+}
+
+
+if(isset($_POST['addNewItem'])){
+    $ItemService = new ItemService();
+    $ItemService->addItem($_POST['category'],$_POST['title'],$_POST['price'],$_POST['brand'],$_POST['detail'], $_POST['imageSrc']);
 }

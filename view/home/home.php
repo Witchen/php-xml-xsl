@@ -48,7 +48,7 @@ $transformedItemXml = $proc->transformToXML($itemXml);
 <body>
   <div class="container">
     <?php include_once('../shared/header.php'); ?>
-
+    <div class='addItemButtonContainer'><a class='addItemButton' href='../product/addProduct.php'>New Item</a></div>
     <?php echo $transformedItemXml; ?>
     </br>
   </div>
