@@ -21,11 +21,15 @@ $transformedNavbarXml = $proc->transformToXML($navbarXml);
 
 $authenticationElement ='<a class="btn btn-sm btn-outline-secondary mr-2" href="../authentication/login.php" >Login</a><a class="btn btn-sm btn-outline-secondary" href="../authentication/registration.php">Sign up</a>';
 
-
 if(isset($_SESSION['full_name'])){
-    $authenticationElement = '<a>Welcome '.$_SESSION['full_name'].' !</a>';
-}
 
+    $authenticationElement = '<div class="dropdown">'.
+            '<a>Welcome '.$_SESSION['full_name'].' !</a>'.
+            '<div class="dropdown-content">
+             <a href="#">Profile</a>
+             <a href="/view/authentication/logout.php">Logout</a>
+             </div></div>';
+}
 ?>
 
 <header class="ecom-header py-2">
