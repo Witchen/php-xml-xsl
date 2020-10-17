@@ -9,6 +9,8 @@ if(isset($_SESSION['role'])){
     }else{
          $navbarXml->load($path . '/view/shared/navbar/navbar.xml');
     }
+}else{
+    $navbarXml->load($path . '/view/shared/navbar/navbar.xml');
 }
 
 

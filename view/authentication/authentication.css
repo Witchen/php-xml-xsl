@@ -14,10 +14,9 @@
 }
 
 .registrationForm{
-    width: 27rem;
-    padding: 12px;
+    width: 40rem;
     border: 1px solid #e1dbdb;
-    height: 40.5rem;
+    height: auto;
     border-radius: 8px;
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
@@ -26,6 +25,12 @@
     left: 50%;
     top: 20%;
     transform: translate(-50%, -20%);
+    padding: 12px 11px 1.5rem 5px;
+}
+
+.componentWrapper{
+    display: flex;
+    flex-direction: row;
 }
 
 .formTitle{
@@ -36,11 +41,14 @@
 .inputBox {
     position: relative;
     height: 3.3rem;
-    margin-bottom: 1rem;
+    flex: 1;
+    padding: 6px;
+    margin-bottom: 0.5rem;
 }
 
+
 .inputBox input {
-    width: 94.5%;
+    width: 95%;
     padding: 0.625rem 10px;
     font-size: 1rem;
     letter-spacing: 0.062rem;
