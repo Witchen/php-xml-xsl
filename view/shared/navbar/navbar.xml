@@ -18,7 +18,11 @@
     <url>/view/home/home.php?category=power-banks</url>
   </nav>
   <nav>
-    <label>Prepaid &#38; Postpaid</label>
-    <url>/view/home/home.php?category=prepaid-postpaid</url>
+    <label>Prepaid</label>
+    <url>/view/company/prepaid.php</url>
+  </nav>
+  <nav>
+    <label>Postpaid</label>
+    <url>/view/thirdparty/company/postpaid.php</url>
   </nav>
 </navbar>

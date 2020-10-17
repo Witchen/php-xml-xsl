@@ -1,0 +1,35 @@
+.prepaid-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #eff0f5;
+  padding: 20px;
+}
+
+.number-input {
+  width: 390px;
+}
+
+.amount-selection-container {
+  margin-left: 70px;
+  width: 400px;
+}
+
+.amount-selection-line {
+  margin-bottom: 12px;
+}
+
+.amount-select-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid #ced4da;
+  width: 100px;
+  margin-right: 12px;
+}
+
+.item-buy-btn {
+  border: 1px solid #ffb916;
+  background: #ffb916;
+  color: #fff;
+  width: 515px;
+  height: 45px;
+}

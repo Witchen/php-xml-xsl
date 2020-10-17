@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2020 at 01:59 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Oct 17, 2020 at 08:47 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,10 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `laxada`
 --
-
-DROP DATABASE IF EXISTS `laxada`;
-CREATE DATABASE `laxada`;
-USE `laxada`;
 
 -- --------------------------------------------------------
 
@@ -62,11 +57,27 @@ INSERT INTO `item` (`id`, `seller_id`, `category`, `title`, `price`, `brand`, `s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `item_order`
+--
+
+CREATE TABLE `item_order` (
+  `id` int(11) NOT NULL,
+  `buyer_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `amount_paid` int(11) NOT NULL,
+  `order_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `seller`
 --
 
 CREATE TABLE `seller` (
   `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `rating` int(11) NOT NULL,
   `location` varchar(255) NOT NULL,
@@ -77,9 +88,34 @@ CREATE TABLE `seller` (
 -- Dumping data for table `seller`
 --
 
-INSERT INTO `seller` (`id`, `name`, `rating`, `location`, `email`) VALUES
-(1, 'PC Master SDN BHD', 89, 'WP Kuala Lumpur', 'pcmaster@gmail.com'),
-(2, 'Hardware', 70, 'Johor', 'myhardware@gmail.com');
+INSERT INTO `seller` (`id`, `userid`, `name`, `rating`, `location`, `email`) VALUES
+(1, 1, 'PC Master SDN BHD', 89, 'WP Kuala Lumpur', 'pcmaster@gmail.com'),
+(2, 2, 'Hardware', 70, 'Johor', 'myhardware@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(50) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `mobile_number` int(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `password` varbinary(512) NOT NULL,
+  `role` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `full_name`, `username`, `mobile_number`, `email`, `address`, `password`, `role`) VALUES
+(10, 'Ariyadhana', 'ari123', 12345678, 'ariyadhana.sunardi38@gmail.com', 'endah promenade', 0x3432393766343462313339353532333532343562323439373339396437613933, 'seller'),
+(11, 'Witchen', 'test123', 123123123, 'kevin@gmail.com', 'endah promenade', 0x3432393766343462313339353532333532343562323439373339396437613933, 'buyer');
 
 --
 -- Indexes for dumped tables
@@ -93,9 +129,21 @@ ALTER TABLE `item`
   ADD KEY `seller_FK` (`seller_id`);
 
 --
+-- Indexes for table `item_order`
+--
+ALTER TABLE `item_order`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `seller`
 --
 ALTER TABLE `seller`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -109,10 +157,22 @@ ALTER TABLE `item`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `item_order`
+--
+ALTER TABLE `item_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `seller`
 --
 ALTER TABLE `seller`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

@@ -7,17 +7,27 @@ require_once($path . "/service/seller-service.php");
 if (isset($_GET['id']) && isset($_GET['qty'])) {
   $itemId = $_GET['id'];
   $qty = $_GET['qty'];
+
+  $itemService = new ItemService();
+  $items = $itemService->getItem($itemId);
+  $item = $items[0];
+
+  $sellerService = new SellerService();
+  $sellers = $sellerService->getSeller($item['seller_id']);
+  $seller = $sellers[0];
+
+} else if (isset($_GET['prepaid-amount'])  && isset($_GET['qty'])) {
+  $qty = $_GET['qty'];
+
+  $item = array();
+  $item['price'] = $_GET['prepaid-amount'];
+
+  $seller = array();
+  $seller['name'] = "Malaysia Mobile Reload";
+  $seller['email'] = "admin@mobilereload.com";
 } else {
   header("Location: /index.php");
 }
-
-$itemService = new ItemService();
-$items = $itemService->getItem($itemId);
-$item = $items[0];
-
-$sellerService = new SellerService();
-$sellers = $sellerService->getSeller($item['seller_id']);
-$seller = $sellers[0];
 
 $subtotal = $item['price'] * $qty;
 $tax = $subtotal * 0.06;
@@ -27,6 +37,8 @@ $itemPriceTxt = number_format((float)$item['price'], 2, '.', '');
 $subtotalTxt = number_format((float)$subtotal, 2, '.', '');
 $taxTxt = number_format((float)$tax, 2, '.', '');
 $totalTxt = number_format((float)$total, 2, '.', '');
+
+
 
 ?>
 
@@ -220,7 +232,7 @@ $totalTxt = number_format((float)$total, 2, '.', '');
         if (paymentStatus == 'success') {
           // postPaymentDataInternal(paymentResponse);
           alert('Your payment is success. Reference ID: ' + referenceId);
-          window.location.href ='/view/thirdparty/payment/receipt.php?referenceId=' + referenceId;
+          window.location.href = '/view/thirdparty/payment/receipt.php?referenceId=' + referenceId;
         }
       }
       sendXmlRequest(requestType, url, params, onReadyFn);
@@ -229,7 +241,7 @@ $totalTxt = number_format((float)$total, 2, '.', '');
     // TODO
     function postPaymentDataInternal(xmlText) {
       if (!xmlText || xmlText.length == 0) return;
-      
+
       var requestType = "POST"
       var url = '?';
       var params = 'payment-data=' + xmlText;
