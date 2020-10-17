@@ -33,6 +33,9 @@ class AuthenticationService
                  exit();
             }else{
                 $fullName = $row['full_name'];
+                $role= $row['role'];
+                $_SESSION['full_name'] = $fullName;
+                $_SESSION['role'] = $role;
                 header("Location: /view/home/home.php?user=$fullName");
                 exit();
             }
@@ -40,7 +43,7 @@ class AuthenticationService
     }
   }
 
-function registration($fullName, $username, $mobileNumber, $email, $address, $password , $confirmPassword){
+function registration($fullName, $username, $mobileNumber, $email, $address, $password , $confirmPassword, $role){
     $fullName= mysqli_real_escape_string($this->connection, $fullName);
     $username = mysqli_real_escape_string($this->connection, $username);
     $mobileNumber= mysqli_real_escape_string($this->connection, $mobileNumber);
@@ -48,8 +51,9 @@ function registration($fullName, $username, $mobileNumber, $email, $address, $pa
     $address= mysqli_real_escape_string($this->connection, $address);
     $password = mysqli_real_escape_string($this->connection, $password);
     $confirmPassword = mysqli_real_escape_string($this->connection, $confirmPassword);
-
-    if($email == '' || $address == '' ||  $mobileNumber == '' ||  $fullName == ''){
+    $role = mysqli_real_escape_string($this->connection, $role);
+    echo $role;
+    if($email == '' || $address == '' ||  $mobileNumber == '' ||  $fullName == '' || $role == "empty"){
         header("Location: /view/authentication/registration.php?registration=emptyField");
         exit();
     }
@@ -83,7 +87,7 @@ function registration($fullName, $username, $mobileNumber, $email, $address, $pa
         exit();
     }else{
         $encryptedPassword = md5($password);
-        $sql= "INSERT INTO users(`full_name`, `username`, `mobile_number`, `email`, `address`, `password`) VALUES ('$fullName','$username', $mobileNumber,'$email','$address','$encryptedPassword')";
+        $sql= "INSERT INTO users(`full_name`, `username`, `mobile_number`, `email`, `address`, `password`, `role`) VALUES ('$fullName','$username', $mobileNumber,'$email','$address','$encryptedPassword','$role')";
         mysqli_query($this->connection, $sql);
         header("Location: /view/authentication/login.php?registration=success");
         exit();
@@ -102,7 +106,10 @@ if(isset($_POST['login'])){
 }
 
 if(isset($_POST['sign-up'])){
-     $AuthenticationService = new AuthenticationService();
-     $AuthenticationService->registration($_POST['fullName'], $_POST['username'], $_POST['phoneNumber'], $_POST['email'], $_POST['address'], $_POST['password'], $_POST['confirmedPassword']);
+    $AuthenticationService = new AuthenticationService();
+    $AuthenticationService->registration($_POST['fullName'], $_POST['username'], $_POST['phoneNumber'], $_POST['email'], $_POST['address'], $_POST['password'], $_POST['confirmedPassword'],isset($_POST['roles']) ? $_POST['roles'] : "empty");
 }
+
+
+
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="navbar.xsl"?>
+<navbar>
+    <nav>
+        <label>Product</label>
+        <url>/view/home/home.php</url>
+    </nav>
+    <nav>
+        <label>Report</label>
+        <url>/view/report/report.php</url>
+    </nav>
+</navbar>

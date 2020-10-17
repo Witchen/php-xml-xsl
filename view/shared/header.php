@@ -3,7 +3,14 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 
 $navbarXml = new DOMDocument;
 // $navbarXml->load('../shared/navbar/navbar.xml');
-$navbarXml->load($path . '/view/shared/navbar/navbar.xml');
+if(isset($_SESSION['role'])){
+    if($_SESSION['role'] == 'seller'){
+        $navbarXml->load($path . '/view/shared/navbar/sellerNavbar.xml');
+    }else{
+         $navbarXml->load($path . '/view/shared/navbar/navbar.xml');
+    }
+}
+
 
 $navbarXsl = new DOMDocument;
 $navbarXsl->load($path . '/view/shared/navbar/navbar.xsl');
@@ -15,8 +22,8 @@ $transformedNavbarXml = $proc->transformToXML($navbarXml);
 $authenticationElement ='<a class="btn btn-sm btn-outline-secondary mr-2" href="../authentication/login.php" >Login</a><a class="btn btn-sm btn-outline-secondary" href="../authentication/registration.php">Sign up</a>';
 
 
-if(!empty($_GET["user"])){
-    $authenticationElement = '<a>Welcome '.$_GET["user"].' !</a>';
+if(isset($_SESSION['full_name'])){
+    $authenticationElement = '<a>Welcome '.$_SESSION['full_name'].' !</a>';
 }
 
 ?>

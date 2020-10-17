@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE items SYSTEM "tableItems.dtd">
+<items>
+    <tableItem>
+        <id>1</id>
+        <product_id>1</product_id>
+        <product_name>Samsung Galaxy</product_name>
+        <amount>20</amount>
+        <sold>15</sold>
+        <price>2000</price>
+        <earning>30000</earning>
+    </tableItem>
+    <tableItem>
+        <id>2</id>
+        <product_id>2</product_id>
+        <product_name>Iphone 11</product_name>
+        <amount>20</amount>
+        <sold>5</sold>
+        <price>4000</price>
+        <earning>20000</earning>
+    </tableItem>
+    <tableItem>
+        <id>3</id>
+        <product_id>3</product_id>
+        <product_name>Mouse Pad</product_name>
+        <amount>100</amount>
+        <sold>50</sold>
+        <price>100</price>
+        <earning>5000</earning>
+    </tableItem>
+</items>

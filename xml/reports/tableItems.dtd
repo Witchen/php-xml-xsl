@@ -1,0 +1,9 @@
+<!ELEMENT items (tableItem*)>
+<!ELEMENT tableItem (id,product_id,product_name,amount,sold,price,earning)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT product_id (#PCDATA)>
+<!ELEMENT product_name (#PCDATA)>
+<!ELEMENT amount (#PCDATA)>
+<!ELEMENT sold (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT earning (#PCDATA)>

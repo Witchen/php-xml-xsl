@@ -44,6 +44,13 @@
                 <input type="password" name="confirmedPassword" value="">
                 <label>Confirmed Password</label>
             </div>
+            <div class="select">
+                 <select name="roles" class='select-css'>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="buyer">Buyer</option>
+                    <option value="seller">Seller</option>
+                 </select>
+            </div>
             <input type="submit" name="sign-up" value="Sign Up">
          </form>
     </div>
