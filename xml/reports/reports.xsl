@@ -4,19 +4,21 @@
     <xsl:template match="/">
         <table id="reportTable">
             <tr>
+                <th>Product Category</th>
                 <th>Product Name</th>
-                <th>Amount</th>
-                <th>Price @item</th>
+                <th>Stock</th>
+                <th>Price</th>
                 <th>Sold</th>
-                <th>Sales Earning</th>
+                <th>Revenue</th>
             </tr>
-            <xsl:for-each select="items/tableItem">
+            <xsl:for-each select="reports/tableItem">
                 <tr>
-                    <td><xsl:value-of select="product_name" /></td>
-                    <td><xsl:value-of select="amount" /></td>
+                    <td><xsl:value-of select="category" /></td>
+                    <td><xsl:value-of select="title" /></td>
+                    <td><xsl:value-of select="stock" /></td>
                     <td><xsl:value-of select="price" /></td>
-                    <td><xsl:value-of select="sold" /></td>
-                    <td><xsl:value-of select="earning" /></td>
+                    <td><xsl:value-of select="quantity" /></td>
+                    <td><xsl:value-of select="revenue" /></td>
                 </tr>
             </xsl:for-each>
         </table>

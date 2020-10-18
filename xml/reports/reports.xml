@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE reports SYSTEM "reports.dtd">
+<reports>
+  <tableItem>
+    <id>36</id>
+    <category>Woman</category>
+    <title>Pembalut </title>
+    <stock>100</stock>
+    <price>20</price>
+    <quantity>22</quantity>
+    <revenue>466</revenue>
+  </tableItem>
+</reports>

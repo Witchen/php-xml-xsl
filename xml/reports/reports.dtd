@@ -1,0 +1,10 @@
+<!ELEMENT reports (tableItem*)>
+<!ELEMENT tableItem (id,category,title,stock,price,quantity,revenue)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT stock (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ELEMENT revenue (#PCDATA)>
+

@@ -1,15 +1,28 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-require_once($path . "/service/item-service.php");
+require_once($path . "/service/report-services.php");
 require_once($path . "/service/xml-service.php");
+
+// Get Items
+$ReportService = new ReportService();
+
+$items = $ReportService->getReports();
+
+
+$transformedItemXml = null;
+
+$xmlService = new XMLService();
+$xmlService->produceXml($items, 'reports', 'tableItem');
+// Validate XML
+$xmlService->validateXml('reports');
 
 // Load XML file
 $itemXml = new DOMDocument;
-$itemXml->load($path . '/xml/reports/tableItems.xml');
+$itemXml->load($path . '/xml/reports/reports.xml');
 
 // Load XSL file
 $itemXsl = new DOMDocument;
-$itemXsl->load($path . '/xml/reports/table.xsl');
+$itemXsl->load($path . '/xml/reports/reports.xsl');
 
 // Attach the XSL rules
 $proc = new XSLTProcessor;
