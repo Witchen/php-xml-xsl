@@ -16,37 +16,37 @@
         <form method="POST" action="/service/authentication-service.php">
             <div class="componentWrapper">
                 <div class="inputBox">
-                    <input type="text" name="fullName" value="">
+                    <input type="text" id='fullName' name="fullName" value="">
                     <label>Full Name</label>
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="username" value="">
+                    <input type="text" id='username' name="username" value="">
                     <label>Username</label>
                 </div>
             </div>
             <div class="componentWrapper">
                 <div class="inputBox">
-                    <input type="number" name="phoneNumber" value="">
+                    <input type="number" id='phoneNumber' name="phoneNumber" value="">
                     <label>Phone Number</label>
                 </div>
                  <div class="inputBox">
-                    <input type="email" name="email" value="">
+                    <input type="email" id='email' name="email" value="">
                     <label>Email</label>
                 </div>
             </div>
             <div class="componentWrapper">
                 <div class="inputBox">
-                    <input type="password" name="password" value="">
+                    <input type="password" id='password' name="password" value="">
                     <label>Password</label>
                 </div>
                  <div class="inputBox">
-                    <input type="password" name="confirmedPassword" value="">
+                    <input type="password" id='confirmedPassword' name="confirmedPassword" value="">
                     <label>Confirmed Password</label>
                 </div>
             </div>
              <div class="componentWrapper">
                 <div class="inputBox">
-                    <input type="text" name="address" value="" style="width: 97.5%;">
+                    <input type="text" name="address" id='address' value="" style="width: 97.5%;">
                     <label>Address</label>
                 </div>
             </div>
@@ -60,27 +60,30 @@
             <div id='sellerRegistrationForm' style="display:none;" >
                 <div class="componentWrapper">
                     <div class="inputBox">
-                        <input type="text" name="storeName" value="">
+                        <input type="text" id='storeName' name="storeName" value="">
                         <label>Store Name</label>
                     </div>
                     <div class="inputBox">
-                        <input type="email" name="storeEmail" value="">
+                        <input type="email" id='storeEmail' name="storeEmail" value="">
                         <label>Store Email</label>
                     </div>
                 </div>
                  <div class="componentWrapper">
                     <div class="inputBox">
-                        <input type="text" name="storeAddress" value="" style="width: 97.5%;">
+                        <input type="text" id='storeAddress' name="storeAddress" value="" style="width: 97.5%;">
                         <label>Store Address</label>
                     </div>
                 </div>
          </div>
-         <input type="submit" name="sign-up" value="Sign Up">
+         <input type="submit" id='sign-up' name="sign-up" value="Sign Up">
       </form>
     </div>
      <script src="../../js/jquery-3.5.1.min.js"></script>
      <script src="../../js/toastr.min.js"></script>
      <script>
+        $(document).ready(function() {
+            initBtnHandler();
+        });
         toastr.options = {
           "closeButton": true,
           "debug": false,
@@ -107,26 +110,51 @@
             }
           }
 
-          <?php if(isset($_GET['registration'])): ?>
-         <?php if($_GET['registration'] == 'shortUserName'): ?>
-              toastr.error("Password is too short!",{timeOut: 500});
-         <?php endif  ?>
-         <?php if($_GET['registration'] == 'passwordNotConfirmed'): ?>
-              toastr.error("Password is not confirmed!",{timeOut: 500});
-         <?php endif ?>
-         <?php if($_GET['registration'] == 'passwordTooShort'): ?>
-              toastr.error("Password is too short!",{timeOut: 500});
-         <?php endif ?>
-         <?php if($_GET['registration'] == 'passwordNotMatch'): ?>
-              toastr.error("Password is not match!",{timeOut: 500});
-         <?php endif ?>
-         <?php if($_GET['registration'] == 'emptyField'): ?>
-              toastr.error("Fields cannot be empty!",{timeOut: 500});
-         <?php endif ?>
-         <?php if($_GET['registration'] == 'success'): ?>
-              toastr.success("Registration Complete!",{timeOut: 500});
-         <?php endif ?>
-        <?php endif ?>
+         function initBtnHandler() {
+             $("#sign-up").on("click", validateData);
+         }
+
+         function validateData() {
+            var fields = ["fullName", "username", "phoneNumber", "email",
+              "password", "confirmedPassword",'address','roleSelectElement'
+            ];
+            for (field of fields) {
+              var value = $("#" + field).val();
+              if (value == null || value == "") {
+                toastr.error("Please input all the fields",{timeOut: 500});
+                return false;
+              }
+            }
+
+            if($("#roleSelectElement").val() === 'seller'){
+                var fields = ['storeName','storeEmail','storeAddress'];
+                for (field of fields) {
+                  var value = $("#" + field).val();
+                  if (value == null || value == "") {
+                    toastr.error("Please Provide Store Information!",{timeOut: 500});
+                    return false;
+                  }
+                }
+            }
+
+            if($("#password").val().length < 6){
+                toastr.error("Password is too short!",{timeOut: 500});
+                return false;
+            }
+
+             if($("#confirmedPassword").val() === ''){
+                toastr.error("Password is not confirmed!",{timeOut: 500});
+                return false;
+            }
+
+            if($("#password").val() !== $("#confirmedPassword").val()){
+                toastr.error("Password is not match!",{timeOut: 500});
+                return false;
+            }
+
+            return true;
+         }
+
 
      </script>
 </body>

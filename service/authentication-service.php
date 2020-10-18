@@ -58,38 +58,6 @@ function registration($fullName, $username, $mobileNumber, $email, $address, $pa
     $storeEmail = mysqli_real_escape_string($this->connection, $storeEmail);
     $storeAddress = mysqli_real_escape_string($this->connection, $storeAddress);
 
-    if($email == '' || $address == '' ||  $mobileNumber == '' ||  $fullName == '' || $role == "empty"){
-        header("Location: /view/authentication/registration.php?registration=emptyField");
-        exit();
-    }
-
-    if(strlen($username) < 5){
-        header("Location: /view/authentication/registration.php?registration=shortUserName");
-        exit();
-    }
-
-    if($confirmPassword === ''){
-        header("Location: /view/authentication/registration.php?registration=passwordNotConfirmed");
-        exit();
-    }
-
-    if(strlen($password) < 6){
-        header("Location: /view/authentication/registration.php?registration=passwordTooShort");
-        exit();
-    }
-
-    if($password != $confirmPassword){
-        header("Location: /view/authentication/registration.php?registration=passwordNotMatch");
-        exit();
-    }
-
-    if($role == 'seller'){
-        if($storeName == '' || $storeEmail == '' ||  $storeAddress == ''){
-            header("Location: /view/authentication/registration.php?registration=emptyField");
-            exit();
-        }
-    }
-
     $sql = "SELECT * FROM users WHERE username ='$username'";
     $result = mysqli_query($this->connection, $sql);
     $resultCheck = mysqli_num_rows($result);
