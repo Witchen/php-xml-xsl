@@ -2,21 +2,21 @@
 <!DOCTYPE reports SYSTEM "reports.dtd">
 <reports>
   <tableItem>
-    <id>36</id>
-    <category>Woman</category>
-    <title>Pembalut </title>
-    <stock>100</stock>
-    <price>20</price>
-    <quantity>22</quantity>
-    <revenue>466</revenue>
+    <id>39</id>
+    <category>Handphone</category>
+    <title>Samsung Galaxy Fold</title>
+    <stock>0</stock>
+    <price>10000</price>
+    <quantity>3</quantity>
+    <revenue>31800</revenue>
   </tableItem>
   <tableItem>
-    <id>38</id>
-    <category>Gaming</category>
-    <title>Hammerhead Wireless</title>
+    <id>40</id>
+    <category>Handphone</category>
+    <title>Iphone 11</title>
     <stock>0</stock>
-    <price>500</price>
-    <quantity>1</quantity>
-    <revenue>530</revenue>
+    <price>5000</price>
+    <quantity>2</quantity>
+    <revenue>10600</revenue>
   </tableItem>
 </reports>

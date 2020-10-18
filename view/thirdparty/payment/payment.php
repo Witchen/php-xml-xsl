@@ -49,6 +49,7 @@ $totalTxt = number_format((float)$total, 2, '.', '');
 
 <head>
   <link href="payment.css" rel="stylesheet">
+    <link href="../../../css/toastr.min.css" rel="stylesheet">
   <title>Payment</title>
 </head>
 
@@ -188,7 +189,8 @@ $totalTxt = number_format((float)$total, 2, '.', '');
     </br>
   </div>
   <?php include_once('../../shared/footer.php'); ?>
-
+   <script src="../../../js/jquery-3.5.1.min.js"></script>
+     <script src="../../../js/toastr.min.js"></script>
   <script>
     $(document).ready(function() {
       initInputValidationHandler();
@@ -306,7 +308,7 @@ $totalTxt = number_format((float)$total, 2, '.', '');
       for (field of fields) {
         var value = $("#" + field).val();
         if (value == null || value == "") {
-          alert("Please input all the fields");
+          toastr.error("Please input all the fields",{timeOut: 500});
           return false;
         }
       }
