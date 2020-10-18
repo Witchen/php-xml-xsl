@@ -32,8 +32,10 @@ class AuthenticationService
                  header("Location: /view/authentication/login.php?login=failed");
                  exit();
             }else{
+                $userId= $row['id'];
                 $fullName = $row['full_name'];
                 $role= $row['role'];
+                $_SESSION['userId'] =  $userId ;
                 $_SESSION['full_name'] = $fullName;
                 $_SESSION['role'] = $role;
                 header("Location: /view/home/home.php?user=$fullName");

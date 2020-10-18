@@ -36,13 +36,38 @@ class ItemService
   {
     $items = array();
     $sql = "SELECT * FROM item";
-    $result = $this->connection->query($sql);
-    if ($result->num_rows > 0) {
-      while ($row = $result->fetch_assoc()) {
-        array_push($items, $row);
-      }
-      return $this->transformData($items);
+
+    if(isset($_SESSION['role'])){
+         if($_SESSION['role'] == 'seller'){
+             $userId=$_SESSION['userId'];
+             $sql = "SELECT * FROM seller WHERE userid ='$userId'";
+             $result = mysqli_query($this->connection, $sql);
+             $resultCheck = mysqli_num_rows($result);
+
+              if ($sellerRow = mysqli_fetch_assoc($result)) {
+                $sellerId = $sellerRow['id'];
+                $sql = "SELECT * FROM item WHERE seller_id = '$sellerId'";
+              }
+
+          }
     }
+
+
+     $result = $this->connection->query($sql);
+     $resultCheck = mysqli_num_rows($result);
+     if($resultCheck < 1){
+        $_SESSION['item']='empty';
+     }else{
+          if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                array_push($items, $row);
+              }
+              if(isset($_SESSION['item'])){
+                unset($_SESSION["item"]);
+              }
+              return $this->transformData($items);
+           }
+     }
 
     return null;
   }
@@ -109,7 +134,8 @@ class ItemService
     $item['stars'] = $stars;
   }
 
-  function addItem($category, $title, $price, $brand, $detail, $image){
+  function addItem($userId , $category, $title, $price, $brand, $detail, $image){
+      $userId= (int)$userId;
       $category= mysqli_real_escape_string($this->connection, $category);
       $title = mysqli_real_escape_string($this->connection, $title);
       $price= mysqli_real_escape_string($this->connection, $price);
@@ -117,14 +143,28 @@ class ItemService
       $detail= mysqli_real_escape_string($this->connection, $detail);
       $image=$image;
 
-      $sql= "INSERT INTO item(`seller_id`,`category`, `title`, `price`, `brand`,`stars`,`picurl`,`detail`) VALUES ('1','$category','$title','$price','$brand','0','$image','$detail')";
-      mysqli_query($this->connection, $sql);
 
+      $sql = "SELECT * FROM seller WHERE userid ='$userId'";
+      $result = mysqli_query($this->connection, $sql);
+      $resultCheck = mysqli_num_rows($result);
+
+      if($resultCheck < 1){
+        exit();
+      }else{
+         if ($row = mysqli_fetch_assoc($result)) {
+            $sellerId = $row['id'];
+            echo 'sellerId'.$sellerId;
+            $sql= "INSERT INTO item(`seller_id`,`category`, `title`, `price`, `brand`,`stars`,`picurl`,`detail`) VALUES ('$sellerId','$category','$title','$price','$brand','0','$image','$detail')";
+            mysqli_query($this->connection, $sql);
+            header("Location: /view/home/home.php");
+            exit();
+         }
+      }
   }
 }
 
 
 if(isset($_POST['addNewItem'])){
     $ItemService = new ItemService();
-    $ItemService->addItem($_POST['category'],$_POST['title'],$_POST['price'],$_POST['brand'],$_POST['detail'], $_POST['imageSrc']);
+    $ItemService->addItem($_SESSION['userId'],$_POST['category'],$_POST['title'],$_POST['price'],$_POST['brand'],$_POST['detail'], $_POST['imageSrc']);
 }

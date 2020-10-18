@@ -60,7 +60,6 @@
  <script src="../../js/jquery-3.5.1.min.js"></script>
   <script src="../../js/toastr.min.js"></script>
   <script>
-        var test ='123';
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();

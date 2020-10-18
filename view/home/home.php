@@ -9,30 +9,44 @@ if (isset($_GET['category'])) {
 
 // Get Items
 $itemService = new ItemService();
+
 $items = isset($category)
-  ? $itemService->getItemsByCategory($category)
-  : $itemService->getItems();
+      ? $itemService->getItemsByCategory($category)
+      : $itemService->getItems();
 
-// Produce XML
-$xmlService = new XMLService();
-$xmlService->produceXml($items, 'items', 'item');
 
-// Validate XML
-$xmlService->validateXml('items');
+$transformedItemXml = null;
 
-// Load XML file
-$itemXml = new DOMDocument;
-$itemXml->load($path . '/xml/items/items.xml');
 
-// Load XSL file
-$itemXsl = new DOMDocument;
-$itemXsl->load($path . '/xml/items/items.xsl');
+if(isset($_SESSION['item'])){
+   echo $_SESSION['item'];
+   $transformedItemXml = '<div>You have no Item yet</div>';
+}else{
+    // Produce XML
+    $xmlService = new XMLService();
+    $xmlService->produceXml($items, 'items', 'item');
+    // Validate XML
+    $xmlService->validateXml('items');
+    // Load XML file
+    $itemXml = new DOMDocument;
+    $itemXml->load($path . '/xml/items/items.xml');
+    // Load XSL file
+    $itemXsl = new DOMDocument;
+    $itemXsl->load($path . '/xml/items/items.xsl');
+    // Attach the XSL rules
+    $proc = new XSLTProcessor;
+    $proc->importStyleSheet($itemXsl);
+    $transformedItemXml = $proc->transformToXML($itemXml);
+}
 
-// Attach the XSL rules
-$proc = new XSLTProcessor;
-$proc->importStyleSheet($itemXsl);
-$transformedItemXml = $proc->transformToXML($itemXml);
-
+$addNewItemButton=null;
+if(isset($_SESSION['role'])){
+    if($_SESSION['role'] == 'seller'){
+         $addNewItemButton='<div class="addItemButtonContainer"><a class="addItemButton" href="../product/addProduct.php">New Item</a></div>';
+    }else{
+         $addNewItemButton=null;
+     }
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +62,7 @@ $transformedItemXml = $proc->transformToXML($itemXml);
 <body>
   <div class="container">
     <?php include_once('../shared/header.php'); ?>
-    <div class='addItemButtonContainer'><a class='addItemButton' href='../product/addProduct.php'>New Item</a></div>
+    <?php echo $addNewItemButton; ?>
     <?php echo $transformedItemXml; ?>
     </br>
   </div>

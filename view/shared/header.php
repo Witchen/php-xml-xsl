@@ -21,7 +21,7 @@ $proc = new XSLTProcessor;
 $proc->importStyleSheet($navbarXsl);
 $transformedNavbarXml = $proc->transformToXML($navbarXml);
 
-$authenticationElement ='<a class="btn btn-sm btn-outline-secondary mr-2" href="../authentication/login.php" >Login</a><a class="btn btn-sm btn-outline-secondary" href="../authentication/registration.php">Sign up</a>';
+$authenticationElement ='<a class="btn btn-sm btn-outline-secondary mr-2" href="/view/authentication/login.php" >Login</a><a class="btn btn-sm btn-outline-secondary" href="/view/authentication/registration.php">Sign up</a>';
 
 if(isset($_SESSION['full_name'])){
 
