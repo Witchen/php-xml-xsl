@@ -18,12 +18,12 @@ $path = $_SERVER['DOCUMENT_ROOT'];
         <h3 class="formTitle">Login</h3>
         <form method="POST" action="/service/authentication-service.php">
             <div class="inputBox">
-                <input type="test" name="username" value="">
-                <label>Username</label>
+                <input type="test" name="username" value="" style="width:95%; height:1.5rem;">
+                <label style="height:0.3rem;">Username</label>
             </div>
             <div class="inputBox">
-                <input type="password" name="password" value="">
-                <label>Password</label>
+                <input type="password" name="password" value="" style="width:95%; height:1.5rem;">
+                <label style="height:0.3rem;">Password</label>
             </div>
             <input type="submit" name="login" value="Sign In">
          </form>

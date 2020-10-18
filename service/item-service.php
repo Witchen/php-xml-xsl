@@ -134,11 +134,12 @@ class ItemService
     $item['stars'] = $stars;
   }
 
-  function addItem($userId , $category, $title, $price, $brand, $detail, $image){
+  function addItem($userId , $category, $title, $price, $stock, $brand, $detail, $image){
       $userId= (int)$userId;
       $category= mysqli_real_escape_string($this->connection, $category);
       $title = mysqli_real_escape_string($this->connection, $title);
       $price= mysqli_real_escape_string($this->connection, $price);
+      $stock= mysqli_real_escape_string($this->connection, $stock);
       $brand= mysqli_real_escape_string($this->connection, $brand);
       $detail= mysqli_real_escape_string($this->connection, $detail);
       $image=$image;
@@ -154,7 +155,7 @@ class ItemService
          if ($row = mysqli_fetch_assoc($result)) {
             $sellerId = $row['id'];
             echo 'sellerId'.$sellerId;
-            $sql= "INSERT INTO item(`seller_id`,`category`, `title`, `price`, `brand`,`stars`,`picurl`,`detail`) VALUES ('$sellerId','$category','$title','$price','$brand','0','$image','$detail')";
+            $sql= "INSERT INTO item(`seller_id`,`category`, `title`, `price`, `brand`,`stars`,`picurl`,`detail`,`stock`) VALUES ('$sellerId','$category','$title','$price','$brand','0','$image','$detail','$stock')";
             mysqli_query($this->connection, $sql);
             header("Location: /view/home/home.php");
             exit();
@@ -166,5 +167,5 @@ class ItemService
 
 if(isset($_POST['addNewItem'])){
     $ItemService = new ItemService();
-    $ItemService->addItem($_SESSION['userId'],$_POST['category'],$_POST['title'],$_POST['price'],$_POST['brand'],$_POST['detail'], $_POST['imageSrc']);
+    $ItemService->addItem($_SESSION['userId'],$_POST['category'],$_POST['title'],$_POST['price'],$_POST['stock'],$_POST['brand'],$_POST['detail'], $_POST['imageSrc']);
 }

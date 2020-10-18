@@ -1,0 +1,62 @@
+
+.profileContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.profileItemContainer{
+    width: 750px;
+    min-height: 250px;
+    height: auto;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 15px 10px 10px 25px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.buyerProfileContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.buyerProfileItemContainer{
+    width: 500px;
+    min-height: 250px;
+    height: auto;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 15px 10px 10px 25px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+
+.itemWrapper{
+    display: flex;
+    flex-direction: row;
+    margin:auto;
+}
+
+
+.profileLabel{
+    margin-right: 1rem;
+}
+
+.profileTitle{
+    font-weight: 600;
+}
+
+#profileTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#profileTable td, #profileTable th {
+    padding: 8px;
+}
+

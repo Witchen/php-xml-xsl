@@ -3,6 +3,7 @@
 ?>
 <!DOCTYPE html>
 <html>
+<?php include_once('../shared/head.php'); ?>
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -11,6 +12,9 @@
   	<link href="../../css/toastr.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
+  <?php include_once('../shared/header.php'); ?>
+
     <div class="registrationForm">
         <h3 class="formTitle">Registration Form</h3>
         <form method="POST" action="/service/authentication-service.php">
@@ -46,7 +50,7 @@
             </div>
              <div class="componentWrapper">
                 <div class="inputBox">
-                    <input type="text" name="address" id='address' value="" style="width: 97.5%;">
+                    <input type="text" name="address" id='address' value="" >
                     <label>Address</label>
                 </div>
             </div>
@@ -70,7 +74,7 @@
                 </div>
                  <div class="componentWrapper">
                     <div class="inputBox">
-                        <input type="text" id='storeAddress' name="storeAddress" value="" style="width: 97.5%;">
+                        <input type="text" id='storeAddress' name="storeAddress" value="" >
                         <label>Store Address</label>
                     </div>
                 </div>
@@ -115,6 +119,7 @@
          }
 
          function validateData() {
+            debugger;
             var fields = ["fullName", "username", "phoneNumber", "email",
               "password", "confirmedPassword",'address','roleSelectElement'
             ];
@@ -157,5 +162,8 @@
 
 
      </script>
+
+     </div>
+      <?php include_once('../shared/footer.php'); ?>
 </body>
 </html>

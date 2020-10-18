@@ -189,11 +189,10 @@ $totalTxt = number_format((float)$total, 2, '.', '');
     </br>
   </div>
   <?php include_once('../../shared/footer.php'); ?>
-   <script src="../../../js/jquery-3.5.1.min.js"></script>
-     <script src="../../../js/toastr.min.js"></script>
+
   <script>
     $(document).ready(function() {
-      initInputValidationHandler();
+     // initInputValidationHandler();
       initBtnHandler();
     });
 

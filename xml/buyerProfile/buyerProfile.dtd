@@ -1,0 +1,9 @@
+<!ELEMENT buyerProfile (buyerProfileItem*)>
+<!ELEMENT buyerProfileItem (id,full_name,username,mobile_number,email,address,role)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT full_name (#PCDATA)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT mobile_number (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT role (#PCDATA)>

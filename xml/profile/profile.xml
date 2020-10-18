@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE profile SYSTEM "profile.dtd">
+<profile>
+  <profileItem>
+    <id>19</id>
+    <full_name>NewAcc</full_name>
+    <username>NewAcc</username>
+    <mobile_number>123123123</mobile_number>
+    <email>ariyadhana.sunardi38@gmail.com</email>
+    <address>NewAcc</address>
+    <role>seller</role>
+    <storeName>NewAcc</storeName>
+    <storeLocation>widyStore@gmail.com</storeLocation>
+    <storeEmail>NewAccNewAcc</storeEmail>
+  </profileItem>
+</profile>

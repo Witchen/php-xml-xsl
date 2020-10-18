@@ -32,9 +32,15 @@
                 <input type="text" id='title' name="title" value="">
                 <label>Title</label>
             </div>
-            <div class="inputBox">
-                <input type="number" id='price' name="price" value="">
-                <label>Price</label>
+            <div style=" display: flex;flex-direction: row;">
+                <div class="inputBox" style="flex:1; margin-right:2px;">
+                   <input type="number" id='price' name="price" value="">
+                   <label>Price</label>
+               </div>
+                 <div class="inputBox" style="flex:1;margin-left:2px;">
+                    <input type="number" id='stock' name="stock" value="">
+                    <label>Stock</label>
+                </div>
             </div>
             <div class="inputBox">
                 <input type="text" id='brand' name="brand" value="">
@@ -107,7 +113,7 @@
            $("#addNewItem").on("click", validateData);
         }
         function validateData() {
-          var fields = ["category", "title", "price", "brand",
+          var fields = ["category", "title", "price","stock", "brand",
             "detail", "imageSrc"
           ];
           for (field of fields) {

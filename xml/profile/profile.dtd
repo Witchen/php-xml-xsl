@@ -1,0 +1,13 @@
+<!ELEMENT profile (profileItem*)>
+<!ELEMENT profileItem (id,full_name,username,mobile_number,email,address,role,storeName,storeLocation,storeEmail)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT full_name (#PCDATA)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT mobile_number (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT role (#PCDATA)>
+<!ELEMENT storeName (#PCDATA)>
+<!ELEMENT storeLocation (#PCDATA)>
+<!ELEMENT storeEmail (#PCDATA)>
+

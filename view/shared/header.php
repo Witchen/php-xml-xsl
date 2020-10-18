@@ -28,7 +28,7 @@ if(isset($_SESSION['full_name'])){
     $authenticationElement = '<div class="dropdown">'.
             '<a>Welcome '.$_SESSION['full_name'].' !</a>'.
             '<div class="dropdown-content">
-             <a href="#">Profile</a>
+             <a href="/view/profile/profile.php">Profile</a>
              <a href="/view/authentication/logout.php">Logout</a>
              </div></div>';
 }
