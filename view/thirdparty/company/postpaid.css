@@ -10,9 +10,17 @@
 }
 
 .label {
-  
+  width: 150px;
 }
 
 .number-input {
   flex: 1;
+}
+
+.postpaid-pay-btn {
+  border: 1px solid #ffb916;
+  background: #ffb916;
+  color: #fff;
+  width: 380px;
+  height: 45px;
 }
