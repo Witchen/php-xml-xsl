@@ -17,10 +17,8 @@ $items = isset($category)
 
 $transformedItemXml = null;
 
-
 if(isset($_SESSION['item'])){
-   echo $_SESSION['item'];
-   $transformedItemXml = '<div>You have no Item yet</div>';
+   $transformedItemXml = '<div class="noDataComponent">You have no Item yet</div>';
 }else{
     // Produce XML
     $xmlService = new XMLService();

@@ -10,4 +10,13 @@
     <quantity>22</quantity>
     <revenue>466</revenue>
   </tableItem>
+  <tableItem>
+    <id>38</id>
+    <category>Gaming</category>
+    <title>Hammerhead Wireless</title>
+    <stock>0</stock>
+    <price>500</price>
+    <quantity>1</quantity>
+    <revenue>530</revenue>
+  </tableItem>
 </reports>

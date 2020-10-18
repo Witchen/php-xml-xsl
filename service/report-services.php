@@ -31,7 +31,7 @@ class ReportService
              $sql = "SELECT DISTINCT item_order.item_id as id, item.category,item.title, item.stock,item.price, SUM(item_order.quantity) as quantity, SUM(item_order.amount_paid) as revenue
                      FROM item
                      INNER JOIN item_order ON item.id = item_order.item_id
-                     WHERE seller_id = 8";
+                     WHERE seller_id ='$sellerId' group by id";
 
       }
 
@@ -44,8 +44,8 @@ class ReportService
                 while ($row = $result->fetch_assoc()) {
                   array_push($items, $row);
                 }
+
                 return $items;
-                print_r($items);
                 if(isset($_SESSION['item'])){
                   unset($_SESSION["item"]);
                 }

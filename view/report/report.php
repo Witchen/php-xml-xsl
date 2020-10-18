@@ -11,23 +11,28 @@ $items = $ReportService->getReports();
 
 $transformedItemXml = null;
 
-$xmlService = new XMLService();
-$xmlService->produceXml($items, 'reports', 'tableItem');
-// Validate XML
-$xmlService->validateXml('reports');
+if(isset($_SESSION['item'])){
+   $transformedItemXml = '<div class="noDataComponent">You have no Item yet</div>';
+}else{
+    $xmlService = new XMLService();
+    $xmlService->produceXml($items, 'reports', 'tableItem');
+    // Validate XML
+    $xmlService->validateXml('reports');
 
-// Load XML file
-$itemXml = new DOMDocument;
-$itemXml->load($path . '/xml/reports/reports.xml');
+    // Load XML file
+    $itemXml = new DOMDocument;
+    $itemXml->load($path . '/xml/reports/reports.xml');
 
-// Load XSL file
-$itemXsl = new DOMDocument;
-$itemXsl->load($path . '/xml/reports/reports.xsl');
+    // Load XSL file
+    $itemXsl = new DOMDocument;
+    $itemXsl->load($path . '/xml/reports/reports.xsl');
 
-// Attach the XSL rules
-$proc = new XSLTProcessor;
-$proc->importStyleSheet($itemXsl);
-$transformedItemXml = $proc->transformToXML($itemXml);
+    // Attach the XSL rules
+    $proc = new XSLTProcessor;
+    $proc->importStyleSheet($itemXsl);
+    $transformedItemXml = $proc->transformToXML($itemXml);
+}
+
 ?>
 
 <!DOCTYPE html>
