@@ -90,6 +90,13 @@ class ItemService
     return null;
   }
 
+  function updateItemStock($id, $stock) {
+    $sql = "UPDATE `item` SET `stock` = `stock` + ? where `id` = ?";
+    $stmt = $this->connection->prepare($sql);
+    $stmt->bind_param("ii", $stock, $id);
+    $stmt->execute(); 
+  }
+
   function transformData(&$items)
   {
     $this->transformUrls($items);

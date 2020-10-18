@@ -72,6 +72,8 @@
       var params = 'action=save-postpaid-payment&postpaid-data=' + paymentXml;
       var onReadyFn = function(response) {
         alert("Your payment is successful");
+        $("#number").val("");
+        $("#amount").val("");
       }
       sendXmlRequest(requestType, url, params, onReadyFn);
     }

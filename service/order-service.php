@@ -1,6 +1,7 @@
 <?php
 
 require_once("db-service.php");
+require_once("item-service.php");
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -11,6 +12,7 @@ class OrderService
   {
     $this->db = new Database();
     $this->connection = $this->db->getConnection();
+    $this->itemService = new ItemService();
   }
 
   function saveOrder($order)
@@ -18,7 +20,8 @@ class OrderService
     $sql = "INSERT INTO `item_order` (`buyer_id`, `item_id`, `quantity`, `amount_paid`, `order_date`) VALUES (?, ?, ?, ?, ?)";
     $stmt = $this->connection->prepare($sql);
     $stmt->bind_param("iiiis", $order->buyerid, $order->itemid, $order->quantity, $order->amountpaid, $order->orderdate);
-    $stmt->execute(); 
+    $stmt->execute();
+    $this->itemService->updateItemStock($order->itemid, -$order->quantity);
   }
 }
 

@@ -88,11 +88,18 @@ $itemDetailList = '<li>' . str_replace("\n", "</li>\n<li>", trim($item['detail']
     });
 
     function buy() {
+      var stock = <?php echo $item['stock'] ?>;
       var qty = $("#qty").val();
       if (qty == null || qty < 1) {
         alert("Please input at least 1 for quantity");
         return;
       }
+
+      if (stock < qty) {
+        alert("Sorry item is currently out of stock");
+        return;
+      }
+
       window.location.href = "/view/thirdparty/payment/payment.php?id=<?php echo $item['id'] ?>&qty=" + qty;
     }
   </script>
