@@ -2,12 +2,12 @@
 <!DOCTYPE buyerProfile SYSTEM "buyerProfile.dtd">
 <buyerProfile>
   <buyerProfileItem>
-    <id>16</id>
-    <full_name>buyer1</full_name>
-    <username>buyer1</username>
+    <id>24</id>
+    <full_name>jojo</full_name>
+    <username>jojo1</username>
     <mobile_number>123123</mobile_number>
-    <email>buyer1@gmail.com</email>
-    <address>buyer1buyer1</address>
+    <email>123123@asdasd</email>
+    <address>asdjasnfkj12312jkasnfa</address>
     <role>buyer</role>
   </buyerProfileItem>
 </buyerProfile>

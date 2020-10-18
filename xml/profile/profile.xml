@@ -2,15 +2,15 @@
 <!DOCTYPE profile SYSTEM "profile.dtd">
 <profile>
   <profileItem>
-    <id>19</id>
-    <full_name>NewAcc</full_name>
-    <username>NewAcc</username>
+    <id>25</id>
+    <full_name>jojo2</full_name>
+    <username>jojo2</username>
     <mobile_number>123123123</mobile_number>
-    <email>ariyadhana.sunardi38@gmail.com</email>
-    <address>NewAcc</address>
+    <email>jojo2@gmail.com</email>
+    <address>endah promenade</address>
     <role>seller</role>
-    <storeName>NewAcc</storeName>
-    <storeLocation>widyStore@gmail.com</storeLocation>
-    <storeEmail>NewAccNewAcc</storeEmail>
+    <storeName>JojoStore</storeName>
+    <storeLocation>JojoStore@gmail.com</storeLocation>
+    <storeEmail>JojoStore</storeEmail>
   </profileItem>
 </profile>

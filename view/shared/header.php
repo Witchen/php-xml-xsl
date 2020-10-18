@@ -43,7 +43,7 @@ if(isset($_SESSION['full_name'])){
       <a class="ecom-header-logo text-dark" href="/">Laxada</a>
     </div>
     <div class="col-4 d-flex justify-content-end align-items-center">
-     
+
       <?php echo $authenticationElement; ?>
 
     </div>
