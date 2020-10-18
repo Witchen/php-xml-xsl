@@ -86,7 +86,7 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     var size = parseFloat(input.files[0].size / (780 * 582)).toFixed(2);
-                    
+
                     if(size > 1) {
                         toastr.error("Please select a smaller Image Size!",{timeOut: 500});
                         return;
