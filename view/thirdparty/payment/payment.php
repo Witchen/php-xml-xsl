@@ -15,11 +15,11 @@ if (isset($_GET['id']) && isset($_GET['qty'])) {
   $sellerService = new SellerService();
   $sellers = $sellerService->getSeller($item['seller_id']);
   $seller = $sellers[0];
-
 } else if (isset($_GET['prepaid-amount'])  && isset($_GET['qty'])) {
   $qty = $_GET['qty'];
 
   $item = array();
+  $item['id'] = 0;
   $item['price'] = $_GET['prepaid-amount'];
 
   $seller = array();
@@ -66,7 +66,7 @@ $totalTxt = number_format((float)$total, 2, '.', '');
           </div>
           <div class="d-flex justify-content-between effective-date">
             <span class="label">Effective Date: </span>
-            <span class="value"><?php echo date("d/M/Y") ?></span>
+            <span class="value"><?php echo date("d/M/Y"); ?></span>
           </div>
           <div class="d-flex justify-content-between receiver-email">
             <span class="label">Email: </span>
@@ -230,23 +230,23 @@ $totalTxt = number_format((float)$total, 2, '.', '');
         var paymentStatus = paymentResponseXml.getElementsByTagName('status')[0].textContent;
         var referenceId = paymentResponseXml.getElementsByTagName('referenceid')[0].textContent;
         if (paymentStatus == 'success') {
-          // postPaymentDataInternal(paymentResponse);
+          postOrderDataInternal(referenceId);
           alert('Your payment is success. Reference ID: ' + referenceId);
-          window.location.href = '/view/thirdparty/payment/receipt.php?referenceId=' + referenceId;
         }
       }
       sendXmlRequest(requestType, url, params, onReadyFn);
     }
 
-    // TODO
-    function postPaymentDataInternal(xmlText) {
-      if (!xmlText || xmlText.length == 0) return;
-
+    function postOrderDataInternal(referenceId) {
+      var orderDataXml = getOrderData()
+      if (!orderDataXml || orderDataXml.length == 0) return;
+      
       var requestType = "POST"
-      var url = '?';
-      var params = 'payment-data=' + xmlText;
-      var onReadyFn = function(paymentResponse) {
-        // TODO
+      var url = '/service/order-service.php';
+      var params = 'action=saveorder&order-data=' + orderDataXml;
+      var onReadyFn = function(response) {
+        console.log(response);
+        window.location.href = '/view/thirdparty/payment/receipt.php?referenceId=' + referenceId;
       }
       sendXmlRequest(requestType, url, params, onReadyFn);
     }
@@ -254,12 +254,12 @@ $totalTxt = number_format((float)$total, 2, '.', '');
     function getPaymentData() {
       var xmlDoc = document.implementation.createDocument(null, "payment");
       var paymentElements = xmlDoc.getElementsByTagName("payment");
-      var paymentElement = paymentElements[0]
+      var paymentElement = paymentElements[0];
 
       var vendorInfoElement = xmlDoc.createElement("vendor");
       paymentElement.appendChild(vendorInfoElement);
-      appendXmlData(xmlDoc, vendorInfoElement, "name", "PC Master SDN BHD");
-      appendXmlData(xmlDoc, vendorInfoElement, "email", "support@pcmaster.com");
+      appendXmlData(xmlDoc, vendorInfoElement, "name", "<?php echo $seller['name'] ?>");
+      appendXmlData(xmlDoc, vendorInfoElement, "email", "<?php echo $seller['email'] ?>");
 
       var payerInfoElement = xmlDoc.createElement("payer");
       paymentElement.appendChild(payerInfoElement);
@@ -281,7 +281,21 @@ $totalTxt = number_format((float)$total, 2, '.', '');
       appendXmlData(xmlDoc, paymentElement, "amount", <?php echo $totalTxt ?>);
 
       var xmlText = new XMLSerializer().serializeToString(xmlDoc);
-      // console.log("xmlText: " + xmlText);
+      return xmlText;
+    }
+
+    function getOrderData() {
+      var xmlDoc = document.implementation.createDocument(null, "order");
+      var orderElements = xmlDoc.getElementsByTagName("order");
+      var orderElement = orderElements[0];
+
+      appendXmlData(xmlDoc, orderElement, "buyerid", 0);
+      appendXmlData(xmlDoc, orderElement, "itemid", <?php echo $item['id'] ?>);
+      appendXmlData(xmlDoc, orderElement, "quantity", <?php echo $qty ?>);
+      appendXmlData(xmlDoc, orderElement, "amountpaid", <?php echo $totalTxt ?>);
+      appendXmlData(xmlDoc, orderElement, "orderdate", "<?php echo date("Y/m/d") ?>");
+
+      var xmlText = new XMLSerializer().serializeToString(xmlDoc);
       return xmlText;
     }
 
